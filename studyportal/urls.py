@@ -16,10 +16,14 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 from . import views
-
+app_name= 'studyportal'
 urlpatterns = [
-    #/
     url(r'^$', views.index, name='index'),
-    #/subject/
     url(r'^(?P<department_id>[0-9]+)/$',views.subject, name='subject'),
+    url(r'^(?P<department_id>[0-9]+)/(?P<subject_code>[\w\-]+)/$',views.material, name='material'),
+    url(r'material/add/$',views.MaterialCreate.as_view(),name='material-add'),
+    url(r'^accounts/',include('registration.backends.hmac.urls')),
+    url(r'^material/add/$', views.model_form_upload, name='create_material'),
+
+
 ]

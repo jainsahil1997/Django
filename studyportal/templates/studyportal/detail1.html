@@ -1,0 +1,215 @@
+{% extends 'studyportal/base.html' %}
+{% block sidenav %}
+  {% for sub in dept.subject_set.all %}
+  <li><a href="/{{dept.id}}/{{sub.code}}">{{sub.code}}-{{sub.sub_name}}</a></li>
+  {% endfor %}
+{% endblock %}
+{% block table %}
+      <div class="row">
+              <div class="col-lg-3">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                          Books
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Description</th>
+                                        </tr>
+                                    </thead>
+                                    {% for material in subj.get_books %}
+                                    <tbody>
+                                        <tr class="success">
+                                          {% if myObject.material.material_link %}
+                                            <td><a href="{{material.material_link}}">{{material.material_desc}}</a></td>
+                                          {% else %}
+                                              <td><a href="{{material.material_file.url}}">{{material.material_desc}}</a></td>
+                                          {% endif %}
+                                        </tr>
+                                   </tbody>
+                                   {% endfor %}
+                                </table>
+                            </div>
+                            <!-- /.table-responsive -->
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
+                <div class="col-lg-3">
+                      <div class="panel panel-default">
+                          <div class="panel-heading">
+                            PPT
+                          </div>
+                          <!-- /.panel-heading -->
+                          <div class="panel-body">
+                              <div class="table-responsive">
+                                  <table class="table">
+                                      <thead>
+                                          <tr>
+                                              <th>Description</th>
+                                          </tr>
+                                      </thead>
+                                      {% for material in subj.get_ppt %}
+                                      <tbody>
+                                          <tr class="info">
+                                            {% if myObject.material.material_link %}
+                                              <td><a href="{{material.material_link}}">{{material.material_desc}}</a></td>
+                                            {% else %}
+                                                <td><a href="{{material.material_file.url}}">{{material.material_desc}}</a></td>
+                                            {% endif %}
+                                          </tr>
+                                     </tbody>
+                                     {% endfor %}
+                                  </table>
+                              </div>
+                              <!-- /.table-responsive -->
+                          </div>
+                          <!-- /.panel-body -->
+                      </div>
+                      <!-- /.panel -->
+                  </div>
+                  <div class="col-lg-3">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                              Past Papers
+                            </div>
+                            <!-- /.panel-heading -->
+                            <div class="panel-body">
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>Description</th>
+                                            </tr>
+                                        </thead>
+                                        {% for material in subj.get_pp %}
+                                        <tbody>
+                                            <tr class="warning">
+                                              {% if myObject.material.material_link %}
+                                                <td><a href="{{material.material_link}}">{{material.material_desc}}</a></td>
+                                              {% else %}
+                                                  <td><a href="{{material.material_file.url}}">{{material.material_desc}}</a></td>
+                                              {% endif %}
+                                            </tr>
+                                       </tbody>
+                                       {% endfor %}
+                                    </table>
+                                </div>
+                                <!-- /.table-responsive -->
+                            </div>
+                            <!-- /.panel-body -->
+                        </div>
+                        <!-- /.panel -->
+                    </div>
+
+                <!-- /.col-lg-6 -->
+            </div>
+            <div class="row">
+                    <div class="col-lg-3">
+                          <div class="panel panel-default">
+                              <div class="panel-heading">
+                                Notes
+                              </div>
+                              <!-- /.panel-heading -->
+                              <div class="panel-body">
+                                  <div class="table-responsive">
+                                      <table class="table">
+                                          <thead>
+                                              <tr>
+                                                  <th>Description</th>
+                                              </tr>
+                                          </thead>
+                                          {% for material in subj.get_notes %}
+                                          <tbody>
+                                              <tr class="success">
+                                                {% if myObject.material.material_link %}
+                                                  <td><a href="{{material.material_link}}">{{material.material_desc}}</a></td>
+                                                {% else %}
+                                                    <td><a href="{{material.material_file.url}}">{{material.material_desc}}</a></td>
+                                                {% endif %}
+                                              </tr>
+                                         </tbody>
+                                         {% endfor %}
+                                      </table>
+                                  </div>
+                                  <!-- /.table-responsive -->
+                              </div>
+                              <!-- /.panel-body -->
+                          </div>
+                          <!-- /.panel -->
+                      </div>
+                      <div class="col-lg-3">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                  Video lectures
+                                </div>
+                                <!-- /.panel-heading -->
+                                <div class="panel-body">
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Description</th>
+                                                </tr>
+                                            </thead>
+                                            {% for material in subj.get_lv %}
+                                            <tbody>
+                                                <tr class="infor">
+                                                  {% if myObject.material.material_link %}
+                                                    <td><a href="{{material.material_link}}">{{material.material_desc}}</a></td>
+                                                  {% else %}
+                                                      <td><a href="{{material.material_file.url}}">{{material.material_desc}}</a></td>
+                                                  {% endif %}
+                                                </tr>
+                                           </tbody>
+                                           {% endfor %}
+                                        </table>
+                                    </div>
+                                    <!-- /.table-responsive -->
+                                </div>
+                                <!-- /.panel-body -->
+                            </div>
+                            <!-- /.panel -->
+                        </div>
+                        <div class="col-lg-3">
+                              <div class="panel panel-default">
+                                  <div class="panel-heading">
+                                    Others
+                                  </div>
+                                  <!-- /.panel-heading -->
+                                  <div class="panel-body">
+                                      <div class="table-responsive">
+                                          <table class="table">
+                                              <thead>
+                                                  <tr>
+                                                      <th>Description</th>
+                                                  </tr>
+                                              </thead>
+                                              {% for material in subj.get_others %}
+                                              <tbody>
+                                                  <tr class="warning">
+                                                    {% if myObject.material.material_link %}
+                                                      <td><a href="{{material.material_link}}">{{material.material_desc}}</a></td>
+                                                    {% else %}
+                                                        <td><a href="{{material.material_file.url}}">{{material.material_desc}}</a></td>
+                                                    {% endif %}
+                                                  </tr>
+                                             </tbody>
+                                             {% endfor %}
+                                          </table>
+                                      </div>
+                                      <!-- /.table-responsive -->
+                                  </div>
+                                  <!-- /.panel-body -->
+                              </div>
+                              <!-- /.panel -->
+                          </div>
+
+                      <!-- /.col-lg-6 -->
+                  </div>
+    <!-- /.row -->
+{% endblock%}

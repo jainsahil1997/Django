@@ -1,1 +1,6 @@
-{{ dept }}
+{% extends 'studyportal/base.html' %}
+{% block sidenav %}
+  {% for sub in dept.subject_set.all %}
+  <li><a href="/{{dept.id}}/{{sub.code}}">{{sub.code}}-{{sub.sub_name}}</a></li>
+  {% endfor %}
+{% endblock %}

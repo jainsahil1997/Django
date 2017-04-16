@@ -1,0 +1,11 @@
+{% extends 'studyportal/base.html' %}
+
+{% block table %}
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Upload</button>
+  </form>
+
+  <p><a href="{% url 'studyportal:index' %}">Return to home</a></p>
+{% endblock %}
